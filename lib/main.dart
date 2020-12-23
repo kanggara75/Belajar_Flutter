@@ -8,29 +8,23 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String pesan = "Ini adalah pesan";
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("007. Anonymous Method"),
-        ),
+        appBar: AppBar(title: Text("Text Style")),
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(pesan),
-              RaisedButton(
-                child: Text("Tekan Saya"),
-                onPressed: () {
-                  setState(() {
-                    pesan = "Pesan Ditekan menggunkan AM";
-                  });
-                },
-              ),
-            ],
+          child: Text(
+            "Ini Text",
+            style: TextStyle(
+              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.bold,
+              fontSize: 40,
+              decoration: TextDecoration.overline,
+              decorationColor: Colors.red,
+              decorationThickness: 3,
+              decorationStyle: TextDecorationStyle.wavy,
+            ),
           ),
         ),
       ),

@@ -1,40 +1,70 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  Random random = Random();
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("010. Animated Countainer && Gesture Detector"),
+          title: Text("011. Flexibel Widget"),
         ),
-        body: Center(
-          child: GestureDetector(
-            onDoubleTap: () {
-              setState(() {});
-            },
-            child: AnimatedContainer(
-              color: Color.fromARGB(
-                255,
-                random.nextInt(256),
-                random.nextInt(256),
-                random.nextInt(256),
+        body: Column(
+          children: [
+            Flexible(
+              flex: 1,
+              child: Row(
+                children: [
+                  Flexible(
+                    flex: 1,
+                    child: Container(
+                        margin: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Colors.red,
+                        )),
+                  ),
+                  Flexible(
+                    flex: 1,
+                    child: Container(
+                        margin: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(70),
+                          color: Colors.black,
+                        )),
+                  ),
+                  Flexible(
+                    flex: 1,
+                    child: Container(
+                        margin: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(100),
+                          color: Colors.amber,
+                        )),
+                  ),
+                ],
               ),
-              duration: Duration(seconds: 1),
-              width: 100.0 + random.nextInt(101),
-              height: 100.0 + random.nextInt(101),
             ),
-          ),
+            Flexible(
+              flex: 2,
+              child: Container(
+                  margin: EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: Colors.blue,
+                  )),
+            ),
+            Flexible(
+              flex: 1,
+              child: Container(
+                  margin: EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: Colors.green,
+                  )),
+            ),
+          ],
         ),
       ),
     );
